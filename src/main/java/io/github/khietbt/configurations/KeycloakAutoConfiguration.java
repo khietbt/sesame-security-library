@@ -1,5 +1,7 @@
 package io.github.khietbt.configurations;
 
+import io.github.khietbt.authorizors.Authorizor;
+import io.github.khietbt.authorizors.KeycloakAuthorizor;
 import org.keycloak.authorization.client.AuthzClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -37,5 +39,10 @@ public class KeycloakAutoConfiguration {
                         null
                 )
         );
+    }
+
+    @Bean("keycloakAuthorizor")
+    public Authorizor keycloakAuthorizor() {
+        return new KeycloakAuthorizor(authzClient());
     }
 }
