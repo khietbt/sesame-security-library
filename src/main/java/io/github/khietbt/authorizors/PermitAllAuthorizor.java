@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
 @Slf4j
-public class DefaultAuthorizor implements Authorizor {
+public class PermitAllAuthorizor implements Authorizor {
 
     @Override
     public boolean authorize(String jwt, String resource, String scope) {
-        return false;
+        return true;
     }
 }
