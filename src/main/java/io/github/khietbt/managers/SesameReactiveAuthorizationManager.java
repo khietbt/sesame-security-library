@@ -37,7 +37,7 @@ public class SesameReactiveAuthorizationManager implements ReactiveAuthorization
                             var jwt = ((JwtAuthenticationToken) data.getT1()).getToken().getTokenValue();
                             var handler = (HandlerMethod) data.getT2();
                             var protectedResource = handler.getBeanType().getAnnotation(ProtectedResource.class);
-                            var resource = "no-resource";
+                            var resource = "no-protected-resource";
                             var scope = handler.getMethod().getName();
 
                             if (protectedResource != null) {
